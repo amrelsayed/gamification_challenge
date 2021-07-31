@@ -30,9 +30,9 @@ class AddAchievementToUser
     {
         $achievement = $event->achievement;
         $user = $event->user;
-
+        
         $user->achievements()->syncWithoutDetaching($achievement->id);
-
+        
         $achievements_count = $user->loadCount('achievements')->achievements_count;
         
         $deserved_badge = Badge::where('points', $achievements_count)

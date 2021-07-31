@@ -51,6 +51,11 @@ class ListUserAchievementsAction
             ->latest('id')
             ->first();
         
+        if (! $latest_reserved_achievement) {
+        	return Achievement::where('type', $type)
+            	->first();
+        }
+        
         return $next_available_achievement = Achievement::where('type', $type)
             ->where('points', '>', $latest_reserved_achievement->points)
             ->first();

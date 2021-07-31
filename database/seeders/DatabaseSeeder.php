@@ -22,9 +22,7 @@ class DatabaseSeeder extends Seeder
             ->count(20)
             ->create();
 
-        $comment = User::factory()
-            ->count(1)
-            ->create();
+        $comment = User::factory()->create();
 
         $this->call([
             AchievementSeeder::class,

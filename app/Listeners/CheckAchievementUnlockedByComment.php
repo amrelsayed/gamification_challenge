@@ -28,6 +28,7 @@ class CheckAchievementUnlockedByComment
      */
     public function handle(CommentWritten $event)
     {
+        
         $comment = $event->comment;
         $user = $comment->user;
 
